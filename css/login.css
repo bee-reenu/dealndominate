@@ -1,0 +1,251 @@
+/* ===== LOGIN CSS ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #060810;
+  --surface: #0d1117;
+  --card: #111827;
+  --border: rgba(212,175,55,0.25);
+  --gold: #d4af37;
+  --gold-light: #f0d060;
+  --text: #f0ece0;
+  --muted: #7a7a8c;
+  --accent: #c8a020;
+  --radius: 16px;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* ---- Animated background ---- */
+.bg-cards {
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+}
+
+.bg-card {
+  position: absolute;
+  font-size: 2rem;
+  opacity: 0.07;
+  animation: floatCard 12s ease-in-out infinite;
+  filter: blur(0.5px);
+}
+
+.bg-card.c1 { top: 10%; left: 5%;  animation-delay: 0s;   font-size: 3rem; }
+.bg-card.c2 { top: 60%; left: 8%;  animation-delay: 2s;   font-size: 2.5rem; }
+.bg-card.c3 { top: 20%; right: 8%; animation-delay: 4s;   font-size: 3.5rem; }
+.bg-card.c4 { top: 70%; right: 5%; animation-delay: 1s;   font-size: 2rem; }
+.bg-card.c5 { top: 40%; left: 50%; animation-delay: 3s;   font-size: 4rem; opacity: 0.04; }
+.bg-card.c6 { bottom: 10%; left: 40%; animation-delay: 5s; font-size: 2.8rem; }
+
+@keyframes floatCard {
+  0%, 100% { transform: translateY(0) rotate(-5deg); }
+  50%       { transform: translateY(-24px) rotate(5deg); }
+}
+
+/* Subtle radial glow */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 30% 40%, rgba(212,175,55,0.07) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 40% at 70% 70%, rgba(100,60,200,0.06) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ---- Layout ---- */
+.login-wrapper {
+  position: relative; z-index: 1;
+  display: flex; flex-direction: column;
+  align-items: center; gap: 28px;
+  padding: 24px;
+  animation: fadeUp 0.7s ease both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- Logo ---- */
+.logo-block {
+  display: flex; align-items: center; gap: 12px;
+}
+.logo-icon {
+  font-size: 2.2rem;
+  color: var(--gold);
+  text-shadow: 0 0 20px rgba(212,175,55,0.6);
+  line-height: 1;
+}
+.logo-text {
+  font-family: 'Cinzel', serif;
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 30px rgba(212,175,55,0.4);
+}
+
+/* ---- Login card ---- */
+.login-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 40px 36px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow:
+    0 24px 80px rgba(0,0,0,0.6),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.login-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.card-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+.card-sub {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 28px;
+  font-weight: 300;
+}
+
+/* ---- Form ---- */
+.form-group {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+
+input {
+  width: 100%;
+  padding: 13px 16px;
+  background: var(--surface);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(212,175,55,0.12);
+}
+input::placeholder { color: rgba(255,255,255,0.2); }
+
+.show-pw {
+  position: absolute;
+  right: 14px; bottom: 14px;
+  font-size: 0.78rem;
+  color: var(--gold);
+  cursor: pointer;
+  user-select: none;
+  font-weight: 500;
+}
+
+/* ---- Buttons ---- */
+.btn-primary {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+  color: #0d0a00;
+  font-family: 'Cinzel', serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.2s, filter 0.2s;
+  margin-top: 4px;
+  box-shadow: 0 4px 20px rgba(212,175,55,0.3);
+}
+.btn-primary:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.08);
+  box-shadow: 0 8px 30px rgba(212,175,55,0.4);
+}
+.btn-primary:active { transform: translateY(0); }
+
+.btn-ghost {
+  width: 100%;
+  padding: 13px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+.btn-ghost:hover {
+  border-color: var(--gold);
+  background: rgba(212,175,55,0.05);
+}
+
+/* ---- Divider ---- */
+.divider {
+  display: flex; align-items: center; gap: 12px;
+  margin: 20px 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+.divider::before, .divider::after {
+  content: ''; flex: 1;
+  height: 1px;
+  background: rgba(255,255,255,0.07);
+}
+
+/* ---- Signup link ---- */
+.signup-link {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.signup-link a { color: var(--gold); text-decoration: none; font-weight: 500; }
+.signup-link a:hover { text-decoration: underline; }
+
+/* ---- Mobile ---- */
+@media (max-width: 480px) {
+  .login-card { padding: 28px 20px; }
+  .logo-text { font-size: 1.6rem; }
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Deal & Dominate — Login</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+
+  <!-- Floating background cards -->
+  <div class="bg-cards" aria-hidden="true">
+    <div class="bg-card c1">💰</div>
+    <div class="bg-card c2">🏠</div>
+    <div class="bg-card c3">⚡</div>
+    <div class="bg-card c4">🎯</div>
+    <div class="bg-card c5">💎</div>
+    <div class="bg-card c6">🔥</div>
+  </div>
+
+  <div class="login-wrapper">
+
+    <!-- Logo -->
+    <div class="logo-block">
+      <div class="logo-icon">♠</div>
+      <span class="logo-text">Deal & Dominate</span>
+    </div>
+
+    <div class="login-card">
+      <h1 class="card-title">Welcome Back</h1>
+      <p class="card-sub">Sign in to play your hand</p>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="you@example.com" autocomplete="email"/>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="••••••••" autocomplete="current-password"/>
+        <span class="show-pw" onclick="togglePw()">Show</span>
+      </div>
+
+      <a href="home.html" class="btn-primary">Sign In</a>
+
+      <div class="divider"><span>or</span></div>
+
+      <button class="btn-ghost">Continue as Guest</button>
+
+      <p class="signup-link">New here? <a href="#">Create an account</a></p>
+    </div>
+
+  </div>
+
+  <script>
+    function togglePw() {
+      const pw = document.getElementById('password');
+      const btn = document.querySelector('.show-pw');
+      if (pw.type === 'password') { pw.type = 'text'; btn.textContent = 'Hide'; }
+      else { pw.type = 'password'; btn.textContent = 'Show'; }
+    }
+  </script>
+</body>
+</html>

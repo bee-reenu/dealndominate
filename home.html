@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Deal & Dominate — Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar">
+    <div class="nav-logo">
+      <span class="logo-icon">♠</span>
+      <span class="logo-text">Deal & Dominate</span>
+    </div>
+    <div class="nav-actions">
+      <div class="player-badge">
+        <div class="avatar">P</div>
+        <span>Player1</span>
+      </div>
+      <a href="index.html" class="btn-logout">Sign Out</a>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">🎮 Card Game</div>
+      <h1 class="hero-title">Deal Your Way<br/><em>to Victory</em></h1>
+      <p class="hero-sub">Collect property sets, charge rent, and dominate the table. Fast-paced, strategic, unforgettable.</p>
+      <div class="hero-btns">
+        <button class="btn-play" onclick="showModal('new')">⚡ New Game</button>
+        <button class="btn-join" onclick="showModal('join')">🔗 Join Game</button>
+      </div>
+    </div>
+
+    <!-- Decorative cards in hero -->
+    <div class="hero-cards" aria-hidden="true">
+      <div class="deco-card dc1">
+        <div class="dc-inner">
+          <span class="dc-suit">♠</span>
+          <div class="dc-label">Wild Card</div>
+          <div class="dc-value">ANY</div>
+        </div>
+      </div>
+      <div class="deco-card dc2">
+        <div class="dc-inner">
+          <span class="dc-suit">💰</span>
+          <div class="dc-label">Rent</div>
+          <div class="dc-value">$5M</div>
+        </div>
+      </div>
+      <div class="deco-card dc3">
+        <div class="dc-inner">
+          <span class="dc-suit">🏠</span>
+          <div class="dc-label">Property</div>
+          <div class="dc-value">Blue</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STATS STRIP ===== -->
+  <div class="stats-strip">
+    <div class="stat"><span class="stat-num">2–5</span><span class="stat-label">Players</span></div>
+    <div class="stat-divider"></div>
+    <div class="stat"><span class="stat-num">~15</span><span class="stat-label">Minutes</span></div>
+    <div class="stat-divider"></div>
+    <div class="stat"><span class="stat-num">110</span><span class="stat-label">Cards</span></div>
+    <div class="stat-divider"></div>
+    <div class="stat"><span class="stat-num">3</span><span class="stat-label">Sets to Win</span></div>
+  </div>
+
+  <!-- ===== GAME MODES ===== -->
+  <section class="section">
+    <div class="section-header">
+      <h2>Game Modes</h2>
+      <p>Pick your battle</p>
+    </div>
+    <div class="modes-grid">
+
+      <div class="mode-card" onclick="showModal('new')">
+        <div class="mode-icon">⚡</div>
+        <h3>Quick Play</h3>
+        <p>Jump into a random match with players worldwide. Best of 1 round.</p>
+        <div class="mode-tag">2–4 Players</div>
+      </div>
+
+      <div class="mode-card featured" onclick="showModal('new')">
+        <div class="featured-badge">Popular</div>
+        <div class="mode-icon">🏆</div>
+        <h3>Tournament</h3>
+        <p>Compete in structured brackets. Climb the leaderboard and earn rewards.</p>
+        <div class="mode-tag">Up to 5 Players</div>
+      </div>
+
+      <div class="mode-card" onclick="showModal('join')">
+        <div class="mode-icon">🤝</div>
+        <h3>Private Room</h3>
+        <p>Create a custom game and invite friends with a room code. Your rules.</p>
+        <div class="mode-tag">2–5 Players</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== HOW TO PLAY ===== -->
+  <section class="section how-section">
+    <div class="section-header">
+      <h2>How to Play</h2>
+      <p>Learn in 3 simple steps</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-body">
+          <h4>Draw & Deal</h4>
+          <p>Draw 2 cards each turn. Play up to 3 cards from your hand — properties, money, or action cards.</p>
+        </div>
+      </div>
+      <div class="step-line"></div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-body">
+          <h4>Build Sets</h4>
+          <p>Collect complete color property sets. Use wildcards to complete tricky sets faster than your opponents.</p>
+        </div>
+      </div>
+      <div class="step-line"></div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-body">
+          <h4>Charge Rent & Win</h4>
+          <p>Play action cards to charge rent, steal properties, or block attacks. First to 3 complete sets wins!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LEADERBOARD PREVIEW ===== -->
+  <section class="section">
+    <div class="section-header">
+      <h2>Top Players</h2>
+      <p>This week's leaderboard</p>
+    </div>
+    <div class="leaderboard">
+      <div class="lb-row lb-header">
+        <span>#</span><span>Player</span><span>Wins</span><span>Win Rate</span>
+      </div>
+      <div class="lb-row gold-row">
+        <span class="lb-rank">🥇</span>
+        <span class="lb-name"><div class="lb-av" style="background:#d4af37">A</div>Ace_King99</span>
+        <span>142</span><span class="lb-rate">87%</span>
+      </div>
+      <div class="lb-row silver-row">
+        <span class="lb-rank">🥈</span>
+        <span class="lb-name"><div class="lb-av" style="background:#6366f1">D</div>DealMaster</span>
+        <span>118</span><span class="lb-rate">81%</span>
+      </div>
+      <div class="lb-row bronze-row">
+        <span class="lb-rank">🥉</span>
+        <span class="lb-name"><div class="lb-av" style="background:#ef4444">R</div>RentKing</span>
+        <span>97</span><span class="lb-rate">74%</span>
+      </div>
+      <div class="lb-row">
+        <span class="lb-rank">4</span>
+        <span class="lb-name"><div class="lb-av" style="background:#10b981">W</div>WildCard_Pro</span>
+        <span>84</span><span class="lb-rate">70%</span>
+      </div>
+      <div class="lb-row lb-you">
+        <span class="lb-rank">—</span>
+        <span class="lb-name"><div class="lb-av" style="background:#d4af37">P</div>You</span>
+        <span>0</span><span class="lb-rate">—</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MODAL ===== -->
+  <div class="modal-overlay" id="modal" onclick="closeModal(event)">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div id="modal-content"></div>
+    </div>
+  </div>
+
+  <script src="js/home.js"></script>
+</body>
+</html>
